@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import java.lang.*?>
+<?import javafx.collections.FXCollections?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.AcceuilController" prefWidth="800" prefHeight="600">
+
+    <!-- Navbar en haut (unchanged) -->
+    <top>
+        <HBox spacing="30" alignment="CENTER_LEFT" style="-fx-background-color: linear-gradient(to right, #c9eaff, #eaf6ff); -fx-padding: 15; -fx-border-width: 0 0 2 0; -fx-border-color: #b3d1f5; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);">
+            <Label text="🚗 COVOITMOB" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #002244; -fx-font-family: 'Segoe UI', sans-serif;" />
+            <Pane HBox.hgrow="ALWAYS"/>
+            <HBox spacing="20" alignment="CENTER">
+                <MenuButton text="🚙 Offres" style="-fx-background-color: rgba(255,255,255,0.6); -fx-text-fill: #002557; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 18;">
+                    <items>
+                        <MenuItem fx:id="mesOffresItem" text="📄 Mes offres"
+                                  style="-fx-font-size: 16px; -fx-text-fill: #002244;"
+                                  onAction="#handleMesOffres" />
+
+                        <MenuItem fx:id="autresOffresItem" text="🌐 Les offres des autres"
+                                  style="-fx-font-size: 16px; -fx-text-fill: #002244;"
+                                  onAction="#handleAutresOffres" />
+
+                    </items>
+                </MenuButton>
+
+                <Button fx:id="ajouterButton" text="➕ Ajouter" style="-fx-background-color: #005288; -fx-text-fill: #ffffff; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20;" onAction="#handleAjouterAction">
+                    <effect>
+                        <DropShadow color="#a0c4ff" radius="6"/>
+                    </effect>
+                </Button>
+
+                <Button text="📋 Listes" onAction="#handleListeAction" style="-fx-background-color: rgba(255,255,255,0.6); -fx-text-fill: #002244; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20;">
+                    <effect>
+                        <DropShadow color="#d0e5ff" radius="4"/>
+                    </effect>
+                </Button>
+                <Button fx:id="listeVehicules" text="Liste Vehicules" style="-fx-background-color: #005288; -fx-text-fill: #ffffff; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20;" onAction="#handleListeVehicules">
+                    <effect>
+                        <DropShadow color="#a0c4ff" radius="6"/>
+                    </effect>
+                </Button>
+                <Button fx:id="eventsButton" text="📅 Événements"
+                        style="-fx-background-color: rgba(255,255,255,0.6);
+               -fx-text-fill: #002244;
+               -fx-font-size: 17px;
+               -fx-font-weight: bold;
+               -fx-background-radius: 10;
+               -fx-padding: 10 20;"
+                        onAction="#handleEventsAction">
+                    <effect>
+                        <DropShadow color="#d0e5ff" radius="4"/>
+                    </effect>
+                </Button>
+                <MenuButton fx:id="avatarMenu" text="👤 Utilisateur"
+                            style="-fx-background-color: rgba(255,255,255,0.6); -fx-text-fill: #002244; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 18;">
+                    <items>
+                        <MenuItem text="📝 Profile" onAction="#handleViewProfile"
+                                  style="-fx-font-size: 16px; -fx-text-fill: #002244;" />
+                        <MenuItem text="🤖 Ouvrir l'Assistant" onAction="#handleOpenAssistant"
+                                  style="-fx-font-size: 14px; -fx-text-fill: black;"/>
+                        <MenuItem text="🚪 Deconnexion" onAction="#handleLogoutAction"
+                                  style="-fx-font-size: 16px; -fx-text-fill: #002244;" />
+                    </items>
+                </MenuButton>
+            </HBox>
+        </HBox>
+    </top>
+
+    <!-- Fixed center content -->
+    <center>
+        <ScrollPane fx:id="scrollPane" fitToWidth="true" fitToHeight="true" hbarPolicy="NEVER" style="-fx-background: transparent; -fx-background-color: transparent;">
+            <content>
+                <VBox alignment="TOP_CENTER" spacing="20" style="-fx-padding: 20 10 50 10;">
+                    <!-- Barre de recherche, filtre et tri -->
+                    <HBox spacing="15" alignment="CENTER">
+                        <HBox spacing="15" alignment="CENTER" style="-fx-padding: 10;">
+                            <TextField fx:id="searchBar" promptText="Rechercher une offre..." prefWidth="300"
+                                       style="-fx-font-size: 14px; -fx-padding: 8px; -fx-background-radius: 10; -fx-border-radius: 10;" />
+
+                            <DatePicker fx:id="datePicker" promptText="Choisir une date"
+                                        style="-fx-font-size: 14px; -fx-padding: 8px; -fx-background-radius: 10; -fx-border-radius: 10;" />
+                            <ComboBox fx:id="sortComboBox" promptText="Trier par"
+                                      style="-fx-font-size: 14px; -fx-padding: 8px; -fx-background-radius: 10; -fx-border-radius: 10;">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="Date" />
+                                        <String fx:value="Prix croissant" />
+                                        <String fx:value="Prix décroissant" />
+                                    </FXCollections>
+                                </items>
+                            </ComboBox>
+                        </HBox>
+                    </HBox>
+
+                    <Label text="Trouvez votre trajet idéal parmi les offres disponibles !" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #0B3D91;" />
+
+                    <ImageView fitHeight="300" fitWidth="400" pickOnBounds="true">
+                        <image>
+                            <Image url="@img/gif.gif" />
+                        </image>
+                    </ImageView>
+
+                    <FlowPane fx:id="offresContainer" hgap="20" vgap="20" alignment="CENTER" prefWrapLength="700"
+                              minHeight="-Infinity" maxHeight="Infinity"/>
+
+                    <!-- Load More Button -->
+                    <Button fx:id="loadMoreButton" text="↓ Charger plus" onAction="#loadMore"
+                            style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 15; -fx-padding: 12 30; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 2, 3);"
+                            visible="false">
+                        <effect>
+                            <DropShadow color="#60a5fa" radius="6"/>
+                        </effect>
+                    </Button>
+
+                    <!-- Extra space at bottom to ensure scrolling works -->
+                    <Region minHeight="20" prefHeight="20" maxHeight="20"/>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+
+    <!-- New footer with clickable link -->
+    <bottom>
+        <HBox alignment="CENTER" style="-fx-background-color: #f0f8ff; -fx-padding: 10; -fx-border-width: 1 0 0 0; -fx-border-color: #b3d1f5;">
+            <Hyperlink text="Besoin d'aide ? Discutez avec notre assistant IA."
+                       onAction="#openChatLink"
+                       style="-fx-font-size: 14px; -fx-text-fill: #005288; -fx-underline: true; -fx-border-color: transparent;"/>
+        </HBox>
+    </bottom>
+</BorderPane>

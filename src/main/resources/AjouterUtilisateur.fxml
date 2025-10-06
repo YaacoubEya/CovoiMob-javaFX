@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.AjouterUtilisateurController"
+            style="-fx-font-family: 'Segoe UI', Arial, sans-serif;
+                   -fx-background-color: linear-gradient(to bottom right, #f0f8ff, #e6f2ff);
+                   -fx-padding: 0;">
+
+    <!-- En-tête animé -->
+    <HBox alignment="CENTER_LEFT" spacing="20"
+          style="-fx-background-color: linear-gradient(to right, #c9eaff, #eaf6ff);
+                 -fx-padding: 15;
+                 -fx-border-width: 0 0 2 0;
+                 -fx-border-color: #b3d1f5;
+                 -fx-background-radius: 0 0 12 12;
+                 -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+        <Label text="🚗 COVOITMOB"
+               style="-fx-font-size: 28px;
+                      -fx-font-weight: bold;
+                      -fx-text-fill: #002244;
+                      -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.8), 0, 0, 0, 1);" />
+
+        <HBox spacing="5" alignment="CENTER" style="-fx-padding: 0 0 0 20;">
+            <Circle radius="5" fill="#005288"
+                    style="-fx-effect: dropshadow(gaussian, rgba(0,82,136,0.5), 2, 0.5, 0, 1);
+                           -fx-opacity: 0.6;
+                           -fx-transition: all 0.5s ease;">
+                <effect>
+                    <Glow level="0.3"/>
+                </effect>
+            </Circle>
+            <Circle radius="5" fill="#005288"
+                    style="-fx-effect: dropshadow(gaussian, rgba(0,82,136,0.5), 2, 0.5, 0, 1);
+                           -fx-opacity: 0.8;
+                           -fx-transition: all 0.5s ease 0.2s;">
+                <effect>
+                    <Glow level="0.3"/>
+                </effect>
+            </Circle>
+            <Circle radius="5" fill="#005288"
+                    style="-fx-effect: dropshadow(gaussian, rgba(0,82,136,0.5), 2, 0.5, 0, 1);
+                           -fx-opacity: 1;
+                           -fx-transition: all 0.5s ease 0.4s;">
+                <effect>
+                    <Glow level="0.3"/>
+                </effect>
+            </Circle>
+        </HBox>
+    </HBox>
+
+    <!-- Contenu principal -->
+    <VBox alignment="TOP_CENTER" spacing="20"
+          style="-fx-background-color: white;
+                 -fx-background-radius: 25;
+                 -fx-border-radius: 25;
+                 -fx-border-color: linear-gradient(to right, #001f4d, #003366);
+                 -fx-border-width: 1;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0.3, 0, 5);
+                 -fx-padding: 30;"
+          AnchorPane.topAnchor="80" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="50">
+
+        <!-- Titre dynamique -->
+        <Label fx:id="formTitle"
+               text="👤 Ajouter un Utilisateur"
+               style="-fx-font-size: 24px;
+                      -fx-font-weight: bold;
+                      -fx-text-fill: linear-gradient(to right, #001133, #003366);
+                      -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 3, 0.3, 0, 2);
+                      -fx-padding: 0 0 10 0;
+                      -fx-border-width: 0 0 3 0;
+                      -fx-border-color: linear-gradient(to right, #001f4d, #003366);" />
+
+        <!-- Formulaire -->
+        <GridPane hgap="20" vgap="15" alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="50" />
+                <ColumnConstraints percentWidth="50" />
+            </columnConstraints>
+
+            <!-- Section 1: Informations personnelles -->
+            <Label text="Informations Personnelles"
+                   style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #002244;
+                          -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.5), 0, 0, 0, 1);"
+                   GridPane.columnSpan="2" GridPane.rowIndex="0"/>
+
+            <!-- Prénom -->
+            <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <Label text="👤 Prénom *" style="-fx-font-weight: bold; -fx-text-fill: #002244;"/>
+                <TextField fx:id="prenomField" promptText="Entrez le prénom"
+                           style="-fx-background-radius: 12;
+                                  -fx-border-radius: 12;
+                                  -fx-border-color: #003366;
+                                  -fx-border-width: 1.5;
+                                  -fx-padding: 8 12;
+                                  -fx-background-color: white;
+                                  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 2, 0.2, 0, 1);"/>
+            </VBox>
+
+            <!-- Nom -->
+            <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Label text="👥 Nom *" style="-fx-font-weight: bold; -fx-text-fill: #002244;"/>
+                <TextField fx:id="nomField" promptText="Entrez le nom"
+                           style="-fx-background-radius: 12;
+                                  -fx-border-radius: 12;
+                                  -fx-border-color: #003366;
+                                  -fx-border-width: 1.5;
+                                  -fx-padding: 8 12;
+                                  -fx-background-color: white;
+                                  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 2, 0.2, 0, 1);"/>
+            </VBox>
+
+            <!-- Email -->
+            <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                <Label text="📧 Email *" style="-fx-font-weight: bold; -fx-text-fill: #002244;"/>
+                <TextField fx:id="emailField" promptText="exemple@email.com"
+                           style="-fx-background-radius: 12;
+                                  -fx-border-radius: 12;
+                                  -fx-border-color: #003366;
+                                  -fx-border-width: 1.5;
+                                  -fx-padding: 8 12;
+                                  -fx-background-color: white;
+                                  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 2, 0.2, 0, 1);"/>
+            </VBox>
+
+            <!-- Téléphone -->
+            <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <Label text="📱 Téléphone" style="-fx-font-weight: bold; -fx-text-fill: #002244;"/>
+                <TextField fx:id="telephoneField" promptText="XX XXX XXX"
+                           style="-fx-background-radius: 12;
+                                  -fx-border-radius: 12;
+                                  -fx-border-color: #003366;
+                                  -fx-border-width: 1.5;
+                                  -fx-padding: 8 12;
+                                  -fx-background-color: white;
+                                  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 2, 0.2, 0, 1);"/>
+            </VBox>
+
+            <!-- Section 2: Rôle et Véhicule -->
+            <Label text="Informations Professionnelles"
+                   style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #002244;
+                          -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.5), 0, 0, 0, 1);"
+                   GridPane.columnSpan="2" GridPane.rowIndex="3"/>
+
+            <!-- Rôle -->
+            <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                <Label text="🎭 Rôle *" style="-fx-font-weight: bold; -fx-text-fill: #002244;"/>
+                <ComboBox fx:id="roleField" promptText="Sélectionnez un rôle"
+                          style="-fx-background-radius: 12;
+                                 -fx-border-radius: 12;
+                                 -fx-border-color: #003366;
+                                 -fx-border-width: 1.5;
+                                 -fx-padding: 8 12;
+                                 -fx-background-color: white;
+                                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 2, 0.2, 0, 1);"/>
+            </VBox>
+
+            <!-- Véhicule -->
+            <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <Label text="🚗 Véhicule" style="-fx-font-weight: bold; -fx-text-fill: #002244;"/>
+                <TextField fx:id="vehiculeField" promptText="Modèle du véhicule"
+                           style="-fx-background-radius: 12;
+                                  -fx-border-radius: 12;
+                                  -fx-border-color: #003366;
+                                  -fx-border-width: 1.5;
+                                  -fx-padding: 8 12;
+                                  -fx-background-color: white;
+                                  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 2, 0.2, 0, 1);"/>
+            </VBox>
+
+            <!-- Section 3: Sécurité (uniquement en mode ajout) -->
+            <VBox fx:id="securitySection" spacing="10" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                <Label text="Sécurité"
+                       style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #002244;
+                              -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.5), 0, 0, 0, 1);"/>
+
+                <!-- Mot de passe -->
+                <VBox spacing="6">
+                    <Label text="🔑 Mot de passe *" style="-fx-font-weight: bold; -fx-text-fill: #002244;"/>
+                    <HBox spacing="10">
+                        <PasswordField fx:id="passwordField" promptText="Mot de passe"
+                                       style="-fx-background-radius: 12;
+                                              -fx-border-radius: 12;
+                                              -fx-border-color: #003366;
+                                              -fx-border-width: 1.5;
+                                              -fx-padding: 8 12;
+                                              -fx-background-color: white;
+                                              -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 2, 0.2, 0, 1);"/>
+                        <Button text="👁" onAction="#togglePasswordVisibility"
+                                style="-fx-background-color: transparent;
+                                       -fx-font-size: 16px;
+                                       -fx-padding: 8 12;
+                                       -fx-cursor: hand;
+                                       -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 1, 0.5, 0, 1);"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Confirmation mot de passe -->
+                <VBox spacing="6">
+                    <Label text="🔏 Confirmer mot de passe *" style="-fx-font-weight: bold; -fx-text-fill: #002244;"/>
+                    <HBox spacing="10">
+                        <PasswordField fx:id="confirmPasswordField" promptText="Confirmer le mot de passe"
+                                       style="-fx-background-radius: 12;
+                                              -fx-border-radius: 12;
+                                              -fx-border-color: #003366;
+                                              -fx-border-width: 1.5;
+                                              -fx-padding: 8 12;
+                                              -fx-background-color: white;
+                                              -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 2, 0.2, 0, 1);"/>
+                        <Button text="👁" onAction="#toggleConfirmPasswordVisibility"
+                                style="-fx-background-color: transparent;
+                                       -fx-font-size: 16px;
+                                       -fx-padding: 8 12;
+                                       -fx-cursor: hand;
+                                       -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 1, 0.5, 0, 1);"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <!-- Section 4: Options -->
+            <VBox spacing="10" GridPane.columnSpan="2" GridPane.rowIndex="6">
+                <Label text="Options"
+                       style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #002244;
+                              -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.5), 0, 0, 0, 1);"/>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <CheckBox fx:id="verifiedCheckBox"/>
+                    <Label text="Compte vérifié" style="-fx-font-weight: bold; -fx-text-fill: #002244;"/>
+                </HBox>
+            </VBox>
+
+            <!-- Boutons d'action -->
+            <HBox spacing="20" alignment="CENTER" GridPane.columnSpan="2" GridPane.rowIndex="7">
+                <Button fx:id="enregistrerButton" text="Ajouter"
+                        onAction="#enregistrerUtilisateur"
+                        style="-fx-background-radius: 25;
+                               -fx-text-fill: white;
+                               -fx-font-size: 16px;
+                               -fx-font-weight: bold;
+                               -fx-padding: 10 25;
+                               -fx-background-color: linear-gradient(to right, #001f4d, #003366);
+                               -fx-cursor: hand;
+                               -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0.3, 0, 4);"/>
+
+                <Button text="Annuler" onAction="#handleCancel"
+                        style="-fx-background-radius: 25;
+                               -fx-text-fill: #003366;
+                               -fx-font-size: 16px;
+                               -fx-font-weight: bold;
+                               -fx-padding: 10 25;
+                               -fx-background-color: #e6f2ff;
+                               -fx-border-color: #003366;
+                               -fx-border-width: 1;
+                               -fx-border-radius: 25;
+                               -fx-cursor: hand;
+                               -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0.3, 0, 2);"/>
+            </HBox>
+
+            <!-- Lien vers la liste -->
+            <Hyperlink text="Voir la liste des utilisateurs" onAction="#retourALaListe"
+                       style="-fx-font-weight: bold; -fx-text-fill: #003366; -fx-underline: true;"
+                       GridPane.columnSpan="2" GridPane.rowIndex="8"/>
+        </GridPane>
+    </VBox>
+</AnchorPane>

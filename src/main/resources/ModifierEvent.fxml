@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<AnchorPane prefHeight="800" prefWidth="1000" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ModifierEventController">
+    <stylesheets>
+        <URL value="@/styles/frontEvent.css" />
+    </stylesheets>
+
+    <children>
+        <!-- Navigation en haut -->
+        <HBox alignment="CENTER_LEFT" spacing="20" style="-fx-background-color: linear-gradient(to right, #c9eaff, #eaf6ff); -fx-padding: 15;" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #002244;" text="🚗 COVOITMOB" />
+            <Pane HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER" spacing="15">
+                <Button text="📋 Retour à la liste" onAction="#handleRetourListe" styleClass="btn-outline-primary" />
+            </HBox>
+        </HBox>
+
+        <!-- Contenu principal en deux colonnes -->
+        <HBox alignment="CENTER" spacing="40" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="80">
+            <!-- Image à gauche -->
+            <VBox alignment="CENTER">
+                <ImageView fx:id="eventImageView" fitHeight="400" fitWidth="400" translateY="30.0">
+                    <image>
+                        <Image url="@/img/pic7.jpg" />
+                    </image>
+                </ImageView>
+            </VBox>
+
+            <!-- Formulaire à droite -->
+            <VBox fx:id="mainBox" maxWidth="587.0" prefWidth="587.0" spacing="20" styleClass="glass-card" translateY="47.0">
+                <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
+
+                <Label style="-fx-font-size: 26px; -fx-font-weight: bold;" text="Modifier l'événement" />
+
+                <GridPane hgap="20" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50" />
+                        <ColumnConstraints percentWidth="50" />
+                    </columnConstraints>
+
+                    <!-- Titre -->
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.columnSpan="2">
+                        <Label text="Titre *" styleClass="form-label" />
+                        <TextField fx:id="titleField" styleClass="form-control" />
+                    </VBox>
+
+                    <!-- Description -->
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                        <Label text="Description *" styleClass="form-label" />
+                        <TextArea fx:id="descriptionField" styleClass="form-control" />
+                    </VBox>
+
+                    <!-- Lieu -->
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                        <Label text="Lieu *" styleClass="form-label" />
+                        <TextField fx:id="locationField" styleClass="form-control" />
+                    </VBox>
+
+                    <!-- Type -->
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label text="Type *" styleClass="form-label" />
+                        <ComboBox fx:id="typeCombo" styleClass="form-control">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="CONCERT" />
+                                    <String fx:value="THEATRE" />
+                                    <String fx:value="SPORT" />
+                                    <String fx:value="EXPOSITION" />
+                                    <String fx:value="CONFERENCE" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                    </VBox>
+
+                    <!-- Date de début -->
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                        <Label text="Date de début *" styleClass="form-label" />
+                        <DatePicker fx:id="startDatePicker" styleClass="form-control" />
+                    </VBox>
+
+                    <!-- Date de fin -->
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Label text="Date de fin *" styleClass="form-label" />
+                        <DatePicker fx:id="endDatePicker" styleClass="form-control" />
+                    </VBox>
+
+                    <!-- Prix -->
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                        <Label text="Prix (DT) *" styleClass="form-label" />
+                        <TextField fx:id="priceField" styleClass="form-control" />
+                    </VBox>
+
+                    <!-- Image -->
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <Label text="Image *" styleClass="form-label" />
+                        <HBox spacing="10">
+                            <Button fx:id="uploadButton" text="Changer" onAction="#handleBrowseImage" styleClass="btn-outline-primary" />
+                            <Label fx:id="fileLabel" styleClass="text-muted" />
+                        </HBox>
+                    </VBox>
+
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+
+                <!-- Boutons -->
+                <HBox spacing="20" alignment="CENTER_RIGHT">
+                    <Button text="Annuler" onAction="#handleAnnuler" styleClass="btn-outline-primary" />
+                    <Button text="💾 Enregistrer" onAction="#handleUpdateEvent" styleClass="btn-primary" />
+                </HBox>
+            </VBox>
+        </HBox>
+    </children>
+</AnchorPane>

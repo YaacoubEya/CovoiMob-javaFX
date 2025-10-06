@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.DropShadow?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.ProfileController" spacing="20" alignment="CENTER"
+      style="-fx-background-color: #f0f9ff; -fx-padding: 30;">
+    <Label text="Mon Profil"
+           style="-fx-font-weight: bold; -fx-font-size: 24px; -fx-text-fill: #0B3D91; -fx-font-family: 'Segoe UI', sans-serif;"/>
+
+    <GridPane hgap="15" vgap="15"
+              style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 25; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);">
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" minWidth="150"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="250"/>
+        </columnConstraints>
+
+        <Label text="Prénom:"
+               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1e3a8a;"
+               GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <Label fx:id="firstNameLabel"
+               style="-fx-font-size: 14px;"
+               GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Nom:"
+               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1e3a8a;"
+               GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <Label fx:id="lastNameLabel"
+               style="-fx-font-size: 14px;"
+               GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Email:"
+               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1e3a8a;"
+               GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <Label fx:id="emailLabel"
+               style="-fx-font-size: 14px;"
+               GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Téléphone:"
+               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1e3a8a;"
+               GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <Label fx:id="phoneLabel"
+               style="-fx-font-size: 14px;"
+               GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Rôle:"
+               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1e3a8a;"
+               GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <Label fx:id="roleLabel"
+               style="-fx-font-size: 14px;"
+               GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+        <Label text="Véhicule:"
+               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1e3a8a;"
+               GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <Label fx:id="vehicleLabel"
+               style="-fx-font-size: 14px;"
+               GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+        <Label text="Compte vérifié:"
+               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1e3a8a;"
+               GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+        <Label fx:id="verifiedLabel"
+               style="-fx-font-size: 14px;"
+               GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="20" alignment="CENTER" style="-fx-padding: 20 0 0 0;">
+        <Button text="Modifier le profil" onAction="#handleEditProfile"
+                style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-padding: 10 20; -fx-background-radius: 8; -fx-cursor: hand;">
+            <effect>
+                <DropShadow color="#60a5fa" radius="5"/>
+            </effect>
+        </Button>
+
+        <Button text="Changer mot de passe" onAction="#handleChangePassword"
+                style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-padding: 10 20; -fx-background-radius: 8; -fx-cursor: hand;">
+            <effect>
+                <DropShadow color="#34d399" radius="5"/>
+            </effect>
+        </Button>
+
+        <Button text="Retour" onAction="#handleBack"
+                style="-fx-background-color: #94a3b8; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-padding: 10 20; -fx-background-radius: 8; -fx-cursor: hand;">
+            <effect>
+                <DropShadow color="#cbd5e1" radius="5"/>
+            </effect>
+        </Button>
+    </HBox>
+</VBox>

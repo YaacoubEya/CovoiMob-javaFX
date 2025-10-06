@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox styleClass="card" spacing="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EventDetailsController">
+    <HBox styleClass="card-header" alignment="CENTER_LEFT">
+        <Label fx:id="titleLabel" styleClass="h3" />
+    </HBox>
+
+    <GridPane styleClass="card-body" hgap="10" vgap="10">
+        <Label text="Date:" styleClass="h5" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+        <Label fx:id="dateLabel" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+        <Label text="Lieu:" styleClass="h5" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+        <Label fx:id="locationLabel" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+        <Label text="Prix:" styleClass="h5" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+        <Label fx:id="priceLabel" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+        <Label text="Réservations:" styleClass="h5" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+        <Label fx:id="reservationsLabel" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+    </GridPane>
+
+    <TableView fx:id="reservationsTable" styleClass="card-body">
+        <columns>
+            <TableColumn text="Date Réservation" prefWidth="150" />
+            <TableColumn text="Quantité" prefWidth="80" />
+            <TableColumn text="Montant" prefWidth="100" />
+            <TableColumn text="Utilisateur" prefWidth="120" />
+        </columns>
+    </TableView>
+</VBox>

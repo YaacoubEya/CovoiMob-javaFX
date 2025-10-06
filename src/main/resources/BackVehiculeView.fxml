@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.BackVehiculeController">
+
+    <left>
+        <VBox prefWidth="240"
+              style="-fx-background-color: linear-gradient(to bottom right, #F0F8FF, #D6EAF8, #AED6F1);
+                     -fx-padding: 30 20 30 20;
+                     -fx-spacing: 20;
+                     -fx-background-radius: 0 30 30 0;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 20, 0.3, 4, 4);"
+              alignment="TOP_CENTER">
+
+            <HBox style="-fx-alignment: center; -fx-padding: 0 0 15 0;">
+                <Label text="✨COVOIMOB✨"
+                       style="-fx-font-size: 22px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: linear-gradient(to right, #2C3E50, #5DADE2);
+                              -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.4, 2, 2);"/>
+            </HBox>
+
+            <HBox alignment="CENTER">
+                <Label text="👤 Mon Profil"
+                       style="-fx-font-size: 16px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: #34495E;
+                              -fx-padding: 0 0 10 0;"/>
+            </HBox>
+
+            <Button text="🚗 Gestion Véhicules"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200"/>
+
+            <Button text="📅 Réservations"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" onAction="#handleReservationsView"/>
+
+            <Button text="📅 All Offres"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" onAction="#handleAllOffresView"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Button fx:id="btnLogout" text="🚪 Déconnexion"
+                    style="-fx-background-color: #FADBD8;
+                           -fx-text-fill: #922B21;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;
+                           -fx-background-radius: 20;
+                           -fx-padding: 10 16 10 16;
+                           -fx-border-color: #F5B7B1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(255,0,0,0.2), 5, 0.1, 1, 1);"
+                    prefWidth="200" />
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="20" style="-fx-padding: 20;">
+            <Label text="Gestion des Véhicules"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+            <TableView fx:id="vehiculeTable" prefHeight="400">
+                <columns>
+                    <TableColumn fx:id="typeCol" text="Type" prefWidth="150"/>
+                    <TableColumn fx:id="modeleCol" text="Modèle" prefWidth="150"/>
+                    <TableColumn fx:id="prixHeureCol" text="Prix/heure (DT)" prefWidth="120"/>
+                    <TableColumn fx:id="prixJourCol" text="Prix/jour (DT)" prefWidth="120"/>
+                    <TableColumn fx:id="dispoCol" text="Disponibilité" prefWidth="120"/>
+                    <TableColumn fx:id="lieuCol" text="Lieu de retrait" prefWidth="150"/>
+                    <TableColumn fx:id="actionsCol" text="Actions" prefWidth="200"/>
+                </columns>
+            </TableView>
+
+            <Button text="➕ Ajouter un véhicule"
+                    style="-fx-background-radius: 25;
+                           -fx-text-fill: white;
+                           -fx-font-size: 16px;
+                           -fx-font-weight: bold;
+                           -fx-padding: 10 25;
+                           -fx-background-color: linear-gradient(to right, #001f4d, #003366);
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0.3, 0, 4);"
+                    onAction="#handleAddVehicule"/>
+
+            <!-- Ajout de l'image en bas au milieu -->
+            <HBox alignment="CENTER">
+                <ImageView fitWidth="200" fitHeight="150" preserveRatio="true">
+                    <image>
+                        <Image url="images/pic16.png" />
+                    </image>
+                </ImageView>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

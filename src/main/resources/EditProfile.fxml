@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.DropShadow?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.EditProfileController" spacing="20" alignment="CENTER"
+      style="-fx-background-color: #f0f9ff;">
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <Label text="Modifier le profil"
+           style="-fx-font-weight: bold; -fx-font-size: 24px; -fx-text-fill: #0B3D91; -fx-font-family: 'Segoe UI', sans-serif;"/>
+
+    <GridPane hgap="15" vgap="15"
+              style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 25; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);">
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" minWidth="150"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="250"/>
+        </columnConstraints>
+
+        <Label text="Prénom:"
+               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1e3a8a;"
+               GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="firstNameField" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                   style="-fx-font-size: 14px; -fx-padding: 8px; -fx-background-radius: 8; -fx-border-radius: 8;"/>
+
+        <Label text="Nom:"
+               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1e3a8a;"
+               GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="lastNameField" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                   style="-fx-font-size: 14px; -fx-padding: 8px; -fx-background-radius: 8; -fx-border-radius: 8;"/>
+
+        <Label text="Email:"
+               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1e3a8a;"
+               GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="emailField" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                   style="-fx-font-size: 14px; -fx-padding: 8px; -fx-background-radius: 8; -fx-border-radius: 8;"/>
+
+        <Label text="Téléphone:"
+               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1e3a8a;"
+               GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="phoneField" GridPane.rowIndex="3" GridPane.columnIndex="1"
+                   style="-fx-font-size: 14px; -fx-padding: 8px; -fx-background-radius: 8; -fx-border-radius: 8;"/>
+
+        <Label text="Véhicule:"
+               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #1e3a8a;"
+               GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="vehicleField" GridPane.rowIndex="4" GridPane.columnIndex="1"
+                   style="-fx-font-size: 14px; -fx-padding: 8px; -fx-background-radius: 8; -fx-border-radius: 8;"/>
+    </GridPane>
+
+    <Label fx:id="errorLabel"
+           style="-fx-text-fill: #ef4444; -fx-font-size: 14px; -fx-font-weight: bold;"
+           visible="false"/>
+
+    <HBox spacing="20" alignment="CENTER" style="-fx-padding: 20 0 0 0;">
+        <Button text="Enregistrer" onAction="#handleSave" defaultButton="true"
+                style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 10 25; -fx-background-radius: 8; -fx-cursor: hand;">
+            <effect>
+                <DropShadow color="#60a5fa" radius="5"/>
+            </effect>
+        </Button>
+
+        <Button text="Annuler" onAction="#handleCancel"
+                style="-fx-background-color: #94a3b8; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 10 25; -fx-background-radius: 8; -fx-cursor: hand;">
+            <effect>
+                <DropShadow color="#cbd5e1" radius="5"/>
+            </effect>
+        </Button>
+    </HBox>
+</VBox>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.layout.Region?>
+
+<BorderPane prefWidth="1200" prefHeight="800"
+            xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.ListeUtilisateursController"
+            style="-fx-background-color: #f8fafc;">
+
+    <!-- Sidebar -->
+    <left>
+        <VBox fx:id="sidebar" prefWidth="240"
+              style="-fx-background-color: linear-gradient(to bottom right, #F0F8FF, #D6EAF8, #AED6F1);
+                     -fx-padding: 30 20 30 20;
+                     -fx-spacing: 20;
+                     -fx-background-radius: 0 30 30 0;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 20, 0.3, 4, 4);"
+              alignment="TOP_CENTER">
+
+            <HBox style="-fx-alignment: center; -fx-padding: 0 0 15 0;">
+                <Label text="✨COVOITMOB✨"
+                       style="-fx-font-size: 22px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: linear-gradient(to right, #2C3E50, #5DADE2);
+                              -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.4, 2, 2);"/>
+            </HBox>
+
+            <!-- Profil en haut -->
+            <HBox alignment="CENTER">
+                <Label text="👤 Mon Profil"
+                       style="-fx-font-size: 16px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: #34495E;
+                              -fx-padding: 0 0 10 0;"/>
+            </HBox>
+            <!-- Bouton Voir les utilisateurs avec fond blanc -->
+            <Button fx:id="btnViewUsers" text="👥 Voir les utilisateurs"
+                    style="-fx-background-color: white;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 5;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 5;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" onAction="#redirectToListeUtilisateurs"/>
+
+
+            <!-- Boutons principaux -->
+            <Button fx:id="btnUsers" text="🚗 Voir les Offres"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" onAction="#showOffres"/>
+
+            <Button fx:id="btnProducts" text="📅 Réservations covoiturages"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" onAction="#showReservations"/>
+
+            <Button fx:id="btnStats" text="📊 Statistiques covoiturage"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" onAction="#showStatistics"/>
+            <Button fx:id="btnEvents" text="📅 Evénements"
+                    style="-fx-background-color: #EAF6FB;
+               -fx-text-fill: #1A5276;
+               -fx-font-size: 15px;
+               -fx-font-weight: 600;
+               -fx-background-radius: 20;
+               -fx-padding: 12 18 12 18;
+               -fx-border-color: #AED6F1;
+               -fx-border-width: 2;
+               -fx-border-radius: 20;
+               -fx-cursor: hand;
+               -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" onAction="#handleEvents"/>
+            <Button fx:id="btnEventsStat" text="📅 Statistiques Evénements "
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" onAction="#showReservations"/>
+            <Button fx:id="btnVeh" text="📅Mes véhicules"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" onAction="#showReservations"/>
+            <Button fx:id="btnVehResercation" text="📅Réservations Véhicules"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" onAction="#showReservations"/>
+
+
+
+
+            <!-- Spacer dynamique -->
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- Déconnexion en bas -->
+            <Button fx:id="btnLogout" text="🚪 Déconnexion" onAction="#handleLogoutAction"
+                    style="-fx-background-color: #FADBD8;
+                           -fx-text-fill: #922B21;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;
+                           -fx-background-radius: 20;
+                           -fx-padding: 10 16 10 16;
+                           -fx-border-color: #F5B7B1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(255,0,0,0.2), 5, 0.1, 1, 1);"
+                    prefWidth="200" />
+        </VBox>
+    </left>
+
+    <!-- Centre -->
+    <center>
+        <VBox spacing="30" alignment="TOP_CENTER" style="-fx-padding: 20;">
+
+            <!-- Header -->
+            <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 20; -fx-background-radius: 15; -fx-background-color: linear-gradient(to right, #ffffffcc, #f0f9ff); -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 12, 0, 0, 4);">
+                <Label text="👤 GESTION DES UTILISATEURS"
+                       style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: #0b2e4a; -fx-font-family: 'Segoe UI';"/>
+                <Pane HBox.hgrow="ALWAYS"/>
+                <HBox spacing="15" alignment="CENTER">
+                    <Button text="➕ Ajouter"
+                            onAction="#goToAjouterUtilisateur"
+                            style="-fx-background-color: #005288; -fx-text-fill: white; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 14; -fx-padding: 10 22;">
+                        <effect>
+                            <DropShadow color="#8ecae6" radius="9"/>
+                        </effect>
+                    </Button>
+                </HBox>
+            </HBox>
+
+            <!-- Titre Section -->
+            <Label text="Liste des utilisateurs"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1e3a8a; -fx-font-family: 'Segoe UI';"/>
+
+            <!-- Table des utilisateurs -->
+            <TableView fx:id="tableViewUsers" prefHeight="500" prefWidth="1000"
+                       style="-fx-background-radius: 12; -fx-border-color: #d1d5db; -fx-border-radius: 12;">
+                <columns>
+                    <TableColumn fx:id="idCol" text="ID"/>
+                    <TableColumn fx:id="emailCol" text="Email"/>
+                    <TableColumn fx:id="password_hashcol" text="Mot de passe"/>
+                    <TableColumn fx:id="roleCol" text="Rôle"/>
+                    <TableColumn fx:id="verifiedCol" text="Vérifié"/>
+                    <TableColumn fx:id="firstNameCol" text="Prénom"/>
+                    <TableColumn fx:id="lastNameCol" text="Nom"/>
+                    <TableColumn fx:id="telephoneCol" text="Téléphone"/>
+                    <TableColumn fx:id="vehiculeCol" text="Véhicule"/>
+                    <TableColumn fx:id="actionCol" text="Actions"/>
+                </columns>
+            </TableView>
+
+            <!-- Footer -->
+            <Label text="© 2025 Covoiturage" style="-fx-font-size: 12px; -fx-text-fill: #64748b;"/>
+        </VBox>
+    </center>
+</BorderPane>

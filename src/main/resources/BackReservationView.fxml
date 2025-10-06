@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.BackReservationController"
+            prefWidth="1200" prefHeight="800">
+
+    <left>
+        <VBox prefWidth="240"
+              style="-fx-background-color: linear-gradient(to bottom right, #F0F8FF, #D6EAF8, #AED6F1);
+                     -fx-padding: 30 20 30 20;
+                     -fx-spacing: 20;
+                     -fx-background-radius: 0 30 30 0;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 20, 0.3, 4, 4);"
+              alignment="TOP_CENTER">
+
+            <HBox style="-fx-alignment: center; -fx-padding: 0 0 15 0;">
+                <Label text="✨COVOIMOB✨"
+                       style="-fx-font-size: 22px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: linear-gradient(to right, #2C3E50, #5DADE2);
+                              -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.4, 2, 2);"/>
+            </HBox>
+
+            <HBox alignment="CENTER">
+                <Label text="👤 Mon Profil"
+                       style="-fx-font-size: 16px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: #34495E;
+                              -fx-padding: 0 0 10 0;"/>
+            </HBox>
+
+            <Button text="🚗 Gestion Véhicules"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" onAction="#handleGestionVehicules"/>
+
+            <Button fx:id="btnReservations" text="📅 Réservations (0)"
+                    style="-fx-background-color: #3498db;
+                           -fx-text-fill: white;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #2980b9;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(41,128,185,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200"/>
+
+            <Button text="📅 All Offres"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" onAction="#handleAllOffresView"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Button fx:id="btnLogout" text="🚪 Déconnexion"
+                    style="-fx-background-color: #FADBD8;
+                           -fx-text-fill: #922B21;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;
+                           -fx-background-radius: 20;
+                           -fx-padding: 10 16 10 16;
+                           -fx-border-color: #F5B7B1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(255,0,0,0.2), 5, 0.1, 1, 1);"
+                    prefWidth="200" />
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <VBox alignment="CENTER" spacing="20" style="-fx-padding: 30;">
+                <Label text="📅 Gestion des Réservations"
+                       style="-fx-font-size: 32px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: linear-gradient(to right, #001133, #003366);
+                              -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 3, 0.3, 0, 2);"/>
+
+                <HBox spacing="20" alignment="CENTER">
+                    <VBox style="-fx-background-color: #F0F8FF; -fx-background-radius: 15; -fx-padding: 15; -fx-spacing: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0.2, 0, 2);"
+                          alignment="CENTER" prefWidth="200">
+                        <Label fx:id="totalReservationsLabel" text="0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;"/>
+                        <Label text="Total Réservations" style="-fx-font-size: 14px; -fx-text-fill: #7F8C8D;"/>
+                    </VBox>
+
+                    <VBox style="-fx-background-color: #E8F8F5; -fx-background-radius: 15; -fx-padding: 15; -fx-spacing: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0.2, 0, 2);"
+                          alignment="CENTER" prefWidth="200">
+                        <Label fx:id="confirmedReservationsLabel" text="0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #27AE60;"/>
+                        <Label text="Confirmées" style="-fx-font-size: 14px; -fx-text-fill: #7F8C8D;"/>
+                    </VBox>
+
+                    <VBox style="-fx-background-color: #FEF9E7; -fx-background-radius: 15; -fx-padding: 15; -fx-spacing: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0.2, 0, 2);"
+                          alignment="CENTER" prefWidth="200">
+                        <Label fx:id="totalRevenueLabel" text="0 DT" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #F39C12;"/>
+                        <Label text="Revenus Totaux" style="-fx-font-size: 14px; -fx-text-fill: #7F8C8D;"/>
+                    </VBox>
+
+                    <VBox style="-fx-background-color: #F5EEF8; -fx-background-radius: 15; -fx-padding: 15; -fx-spacing: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0.2, 0, 2);"
+                          alignment="CENTER" prefWidth="200">
+                        <Label fx:id="mostReservedVehicleLabel" text="-" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #8E44AD;"/>
+                        <Label text="Véhicule Populaire" style="-fx-font-size: 14px; -fx-text-fill: #7F8C8D;"/>
+                    </VBox>
+                </HBox>
+
+                <VBox fx:id="chartContainer" alignment="CENTER" spacing="10" style="-fx-padding: 0 0 20 0;">
+                </VBox>
+
+                <TableView fx:id="reservationsTable" prefHeight="300">
+                    <columns>
+                        <TableColumn fx:id="dateDebutCol" text="Date Début" />
+                        <TableColumn fx:id="dateFinCol" text="Date Fin" />
+                        <TableColumn fx:id="prixCol" text="Prix (DT)" />
+                        <TableColumn fx:id="statusCol" text="Statut" />
+                        <TableColumn fx:id="actionsCol" text="Actions" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

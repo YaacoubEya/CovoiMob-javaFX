@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.effect.DropShadow?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleButton?>
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.EventController"
+            fx:id="mainContainer"
+            prefWidth="1200" prefHeight="800">
+
+    <!-- Top Navigation -->
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="82.0" prefWidth="1000.0" spacing="20"
+              style="-fx-background-color: linear-gradient(to right, #c9eaff, #eaf6ff);
+            -fx-padding: 15;
+            -fx-border-width: 0 0 2 0;
+            -fx-border-color: #b3d1f5;
+            -fx-background-radius: 12;
+            -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);">
+            <MenuButton text="🚙 Offres" style="-fx-background-color: rgba(255,255,255,0.6); -fx-text-fill: #002557; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 18;">
+                <items>
+                    <MenuItem fx:id="mesOffresItem" text="📄 Mes offres"
+                              style="-fx-font-size: 16px; -fx-text-fill: #002244;"
+                              onAction="#handleMesOffres" />
+
+                    <MenuItem fx:id="autresOffresItem" text="🌐 Les offres des autres"
+                              style="-fx-font-size: 16px; -fx-text-fill: #002244;"
+                              onAction="#handleAutresOffres" />
+                </items>
+            </MenuButton>
+            <MenuButton fx:id="eventsMenu"
+                        style="-fx-background-color: rgba(255,255,255,0.6);
+                 -fx-text-fill: #002557;
+                 -fx-font-size: 17px;
+                 -fx-font-weight: bold;
+                 -fx-background-radius: 10;
+                 -fx-padding: 10 18;"
+                        text="📅 Événements">
+                <items>
+                    <MenuItem style="-fx-font-size: 16px; -fx-text-fill: #002244;" text="📄 Tous les événements" onAction="#handleShowAllEvents">
+                        <graphic>
+                            <CheckBox fx:id="allEventsCheck" selected="true" />
+                        </graphic>
+                    </MenuItem>
+                    <MenuItem style="-fx-font-size: 16px; -fx-text-fill: #002244;" text="📋 Mes réservations" onAction="#handleMyReservations">
+                        <graphic>
+                            <CheckBox fx:id="myReservationsCheck" />
+                        </graphic>
+                    </MenuItem>
+                </items>
+            </MenuButton>
+            <Button text="📋 Listes" onAction="#handleListeAction" style="-fx-background-color: rgba(255,255,255,0.6); -fx-text-fill: #002244; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20;">
+                <effect>
+                    <DropShadow color="#d0e5ff" radius="4"/>
+                </effect>
+            </Button>
+
+            <Button fx:id="listeVehicules" text="Liste Vehicules" style="-fx-background-color: #005288; -fx-text-fill: #ffffff; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20;" onAction="#handleListeVehicules">
+                <effect>
+                    <DropShadow color="#a0c4ff" radius="6"/>
+                </effect>
+            </Button>
+
+            <MenuButton text="👤 Utilisateur"
+                        style="-fx-background-color: rgba(255,255,255,0.6); -fx-text-fill: #002244; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 18;">
+                <items>
+                    <MenuItem text="📝 Profile" onAction="#handleProfile"
+                              style="-fx-font-size: 16px; -fx-text-fill: #002244;" />
+                    <MenuItem text="🚪 Deconnexion" onAction="#handleLogoutAction"
+                              style="-fx-font-size: 16px; -fx-text-fill: #002244;" />
+                </items>
+            </MenuButton>
+            <Pane HBox.hgrow="ALWAYS" />
+            <ToggleButton fx:id="darkModeToggle"
+                          style="-fx-background-color: #3c3f41;
+                                -fx-text-fill: white;
+                                -fx-background-radius: 5;
+                                -fx-padding: 5 10;"
+                          text="🌙 Dark Mode" />
+
+            <HBox alignment="CENTER" spacing="15">
+                <Button fx:id="addEventButton" onAction="#handleAddEvent"
+                        style="-fx-background-color: #005288;
+                           -fx-text-fill: white;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;
+                           -fx-background-radius: 14;
+                           -fx-padding: 8 18;"
+                        text="➕ Ajouter un événement">
+                    <effect>
+                        <DropShadow color="#8ecae6" radius="7" />
+                    </effect>
+                </Button>
+            </HBox>
+        </HBox>
+    </top>
+
+    <!-- Center Content -->
+    <center>
+        <StackPane>
+            <!-- Background Image -->
+            <ImageView fitHeight="800" fitWidth="1200" opacity="0.12" preserveRatio="false">
+                <image>
+                    <Image url="@/img/pic5.jpg" />
+                </image>
+            </ImageView>
+
+            <!-- Conteneur principal -->
+            <VBox alignment="TOP_CENTER" spacing="15" style="-fx-padding: 20;">
+                <!-- Titre et outils de recherche/tri -->
+                <HBox alignment="CENTER" spacing="20" style="-fx-padding: 0 0 15 0;">
+                    <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #0b2e4a; -fx-font-family: 'Segoe UI';"
+                           text="Nos événements à venir">
+                        <effect>
+                            <DropShadow color="#bfd7ff" radius="5" />
+                        </effect>
+                    </Label>
+
+                    <!-- Conteneur pour les outils de recherche/tri -->
+                    <HBox alignment="CENTER_LEFT" spacing="15">
+                        <TextField fx:id="searchField" promptText="Rechercher..."
+                                   style="-fx-background-color: white; -fx-border-color: #00acc1; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 5 10;"
+                                   onKeyReleased="#handleSearch"/>
+
+                        <ComboBox fx:id="sortComboBox" promptText="Trier par"
+                                  style="-fx-background-color: white; -fx-border-color: #00acc1; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 5 10;"
+                                  onAction="#handleSort"/>
+
+
+                    </HBox>
+                </HBox>
+
+                <!-- Cards Container with ScrollPane -->
+                <ScrollPane fitToWidth="true" style="-fx-background: transparent; -fx-background-color: transparent;">
+                    <FlowPane fx:id="eventsFlowPane"
+                              alignment="TOP_CENTER"
+                              hgap="20"
+                              vgap="20"
+                              prefWrapLength="1200"
+                              style="-fx-padding: 15; -fx-background-color: transparent;" />
+                </ScrollPane>
+
+                <!-- Pagination Controls -->
+                <HBox fx:id="paginationContainer" alignment="CENTER" spacing="10" style="-fx-padding: 0 0 20 0;">
+                    <Button fx:id="prevButton" onAction="#previousPage"
+                            style="-fx-background-color: #005288; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 5 15;"
+                            text="Précédent" />
+                    <Label fx:id="pageInfo" style="-fx-font-weight: bold; -fx-text-fill: #0b2e4a;" />
+                    <Button fx:id="nextButton" onAction="#nextPage"
+                            style="-fx-background-color: #005288; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 5 15;"
+                            text="Suivant" />
+                </HBox>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>

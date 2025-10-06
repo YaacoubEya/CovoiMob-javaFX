@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.ModifierReservationController"
+      spacing="20" style="-fx-padding: 20; -fx-background-color: #f5f5f5;">
+
+    <Label text="Modifier la réservation" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="10" vgap="10">
+        <Label text="Événement:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label fx:id="eventTitleLabel" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Quantité:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Spinner fx:id="quantitySpinner" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Label text="Montant total:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <Label fx:id="totalAmountLabel" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Annuler" onAction="#handleCancel" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+        <Button text="Enregistrer" onAction="#handleSave" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+    </HBox>
+</VBox>

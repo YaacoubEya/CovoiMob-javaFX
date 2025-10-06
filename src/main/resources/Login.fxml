@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.LoginController"
+            prefHeight="600.0" prefWidth="800.0"
+            style="-fx-font-family: 'Segoe UI', Arial, sans-serif;">
+
+    <!-- Arrière-plan avec dégradé de couleur -->
+    <Rectangle width="800" height="600"
+               style="-fx-fill: linear-gradient(to bottom right, #f0f8ff, #e6f2ff);"/>
+
+    <!-- En-tête -->
+    <HBox alignment="CENTER_LEFT" spacing="20"
+          style="-fx-background-color: linear-gradient(to right, #c9eaff, #eaf6ff);
+                 -fx-padding: 15;
+                 -fx-border-width: 0 0 2 0;
+                 -fx-border-color: #b3d1f5;
+                 -fx-background-radius: 12;
+                 -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+        <Label text="🚗 COVOITMOB"
+               style="-fx-font-size: 28px;
+                      -fx-font-weight: bold;
+                      -fx-text-fill: #002244;
+                      -fx-font-family: 'Segoe UI', sans-serif;" />
+    </HBox>
+
+    <!-- Contenu principal -->
+    <VBox alignment="CENTER" spacing="20"
+          style="-fx-background-color: linear-gradient(to bottom, #c2e4fb, #eff6ff);
+                 -fx-background-radius: 25;
+                 -fx-border-radius: 25;
+                 -fx-border-color: linear-gradient(to right, #001f4d, #003366);
+                 -fx-border-width: 1;
+                 -fx-padding: 40;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0.3, 0, 5);
+                 -fx-font-family: 'Segoe UI', sans-serif;"
+          AnchorPane.topAnchor="100" AnchorPane.bottomAnchor="100" AnchorPane.leftAnchor="150" AnchorPane.rightAnchor="150">
+
+        <!-- Titre -->
+        <Label text="🔐 Connexion"
+               style="-fx-font-size: 32px;
+                      -fx-font-weight: bold;
+                      -fx-text-fill: linear-gradient(to right, #001133, #003366);
+                      -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 3, 0.3, 0, 2);" />
+
+        <!-- Formulaire -->
+        <VBox spacing="15" maxWidth="400">
+            <!-- Email -->
+            <VBox spacing="5">
+                <Label text="📧 Email" style="-fx-font-weight: bold; -fx-text-fill: #002244;"/>
+                <TextField fx:id="emailField" promptText="Votre email"
+                           style="-fx-background-radius: 12;
+                                  -fx-border-radius: 12;
+                                  -fx-border-color: #003366;
+                                  -fx-border-width: 1.5;
+                                  -fx-padding: 8 12;
+                                  -fx-background-color: white;" />
+                <Label fx:id="emailError"
+                       style="-fx-text-fill: #e74c3c;
+                              -fx-font-size: 12px;
+                              -fx-effect: dropshadow(gaussian, rgba(231,76,60,0.2), 1, 0.5, 0, 1);" />
+            </VBox>
+
+            <!-- Mot de passe -->
+            <VBox spacing="5">
+                <Label text="🔑 Mot de passe" style="-fx-font-weight: bold; -fx-text-fill: #002244;"/>
+                <HBox spacing="5" alignment="CENTER_LEFT">
+                    <PasswordField fx:id="passwordField" promptText="Votre mot de passe"
+                                   style="-fx-background-radius: 12;
+                                          -fx-border-radius: 12;
+                                          -fx-border-color: #003366;
+                                          -fx-border-width: 1.5;
+                                          -fx-padding: 8 12;
+                                          -fx-background-color: white;" />
+                    <TextField fx:id="visiblePasswordField" promptText="Votre mot de passe"
+                               style="-fx-background-radius: 12;
+                                      -fx-border-radius: 12;
+                                      -fx-border-color: #003366;
+                                      -fx-border-width: 1.5;
+                                      -fx-padding: 8 12;
+                                      -fx-background-color: white;"
+                               managed="false" visible="false" />
+                    <Button text="👁"
+                            style="-fx-background-color: transparent;
+                                   -fx-font-size: 16px;
+                                   -fx-padding: 8 12;
+                                   -fx-cursor: hand;
+                                   -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 1, 0.5, 0, 1);" />
+                </HBox>
+                <Label fx:id="passwordError"
+                       style="-fx-text-fill: #e74c3c;
+                              -fx-font-size: 12px;
+                              -fx-effect: dropshadow(gaussian, rgba(231,76,60,0.2), 1, 0.5, 0, 1);" />
+            </VBox>
+
+            <!-- Lien mot de passe oublié -->
+            <Hyperlink text="Mot de passe oublié ?"
+                       onAction="#handleForgotPassword"
+                       style="-fx-text-fill: #003366;
+                              -fx-font-size: 12px;
+                              -fx-underline: true;
+                              -fx-font-weight: bold;" />
+        </VBox>
+
+        <!-- Bouton de connexion -->
+        <Button text="Se connecter"
+                onAction="#handleLogin"
+                style="-fx-background-radius: 25;
+                       -fx-text-fill: white;
+                       -fx-font-size: 16px;
+                       -fx-font-weight: bold;
+                       -fx-padding: 10 25;
+                       -fx-background-color: linear-gradient(to right, #001f4d, #003366);
+                       -fx-cursor: hand;
+                       -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0.3, 0, 4);" />
+
+        <!-- Lien vers inscription -->
+        <Hyperlink text="Pas encore de compte ? Créer un compte"
+                   onAction="#switchToSignup"
+                   style="-fx-text-fill: #003366;
+                          -fx-font-size: 14px;
+                          -fx-underline: true;
+                          -fx-font-weight: bold;"
+                   fx:id="signupLink" />
+
+        <!-- Message d'erreur -->
+        <Label fx:id="errorLabel"
+               style="-fx-text-fill: #e74c3c;
+                      -fx-font-size: 14px;
+                      -fx-effect: dropshadow(gaussian, rgba(231,76,60,0.2), 1, 0.5, 0, 1);"
+               visible="false" />
+    </VBox>
+</AnchorPane>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.scene.layout.StackPane?>
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.EventsTableController"
+            prefWidth="1200" prefHeight="800">
+
+    <!-- Sidebar -->
+    <left>
+        <VBox fx:id="sidebar" prefWidth="240"
+              style="-fx-background-color: linear-gradient(to bottom right, #F0F8FF, #D6EAF8, #AED6F1);
+                     -fx-padding: 30 20 30 20;
+                     -fx-spacing: 20;
+                     -fx-background-radius: 0 30 30 0;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 20, 0.3, 4, 4);"
+              alignment="TOP_CENTER">
+
+            <HBox style="-fx-alignment: center; -fx-padding: 0 0 15 0;">
+                <Label text="✨COVOIMOB✨"
+                       style="-fx-font-size: 22px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: linear-gradient(to right, #2C3E50, #5DADE2);
+                              -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.4, 2, 2);"/>
+            </HBox>
+
+            <!-- Profil en haut -->
+            <HBox alignment="CENTER">
+                <Label text="👤 Mon Profil"
+                       style="-fx-font-size: 16px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: #34495E;
+                              -fx-padding: 0 0 10 0;"/>
+            </HBox>
+            <!-- Boutons principaux -->
+            <Button fx:id="btnUtilisateur" text="👤 Utilisateurs" onAction="#handleNavigation"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" />
+
+            <Button fx:id="btnOffres" text="🚗 Voir les Offres" onAction="#handleNavigation"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" />
+
+            <Button fx:id="btnReservationsCovoit" text="📅 Réservations covoiturage" onAction="#handleNavigation"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" />
+
+            <Button fx:id="btnStatsCovoit" text="📊 Statistiques covoiturage" onAction="#handleNavigation"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" />
+
+            <Button fx:id="btnEvents" text="🎉 Événements"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" onAction="#showEvents"/>
+
+            <Button fx:id="btnStats" text="📊 Statistiques Événements"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" onAction="#showStatistics"/>
+
+            <Button fx:id="btnVeh" text="🚙 Mes véhicules" onAction="#handleNavigation"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" />
+
+            <Button fx:id="btnVehReservation" text="📝 Réservations véhicules" onAction="#handleNavigation"
+                    style="-fx-background-color: #EAF6FB;
+                           -fx-text-fill: #1A5276;
+                           -fx-font-size: 15px;
+                           -fx-font-weight: 600;
+                           -fx-background-radius: 20;
+                           -fx-padding: 12 18 12 18;
+                           -fx-border-color: #AED6F1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(173,216,230,0.3), 8, 0.2, 1, 1);"
+                    prefWidth="200" />
+
+            <!-- Spacer dynamique -->
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- Déconnexion en bas -->
+            <Button fx:id="btnLogout" text="🚪 Déconnexion"
+                    style="-fx-background-color: #FADBD8;
+                           -fx-text-fill: #922B21;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;
+                           -fx-background-radius: 20;
+                           -fx-padding: 10 16 10 16;
+                           -fx-border-color: #F5B7B1;
+                           -fx-border-width: 2;
+                           -fx-border-radius: 20;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(255,0,0,0.2), 5, 0.1, 1, 1);"
+                    prefWidth="200" />
+        </VBox>
+    </left>
+
+    <top>
+        <HBox alignment="CENTER_RIGHT" style="-fx-padding: 10;">
+            <StackPane>
+                <Button fx:id="notificationButton" style="-fx-background-color: transparent; -fx-border-width: 0;" onAction="#toggleNotifications">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-bell" iconSize="24" iconColor="#2c3e50"/>
+                    </graphic>
+                </Button>
+                <Label fx:id="notificationBadge"
+                       style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 10; -fx-min-width: 20; -fx-min-height: 20; -fx-alignment: center;"
+                       visible="false"
+                       translateX="10" translateY="-10"/>
+            </StackPane>
+        </HBox>
+    </top>
+
+
+    <!-- Centre -->
+    <center>
+        <VBox fx:id="centerContent" alignment="CENTER" spacing="20" style="-fx-padding: 20;">
+            <VBox fx:id="notificationsContainer" styleClass="notifications-container" spacing="10" visible="false" managed="false"/>
+            <!-- Tableau des événements -->
+            <TableView fx:id="eventsTable" style="-fx-background-color: #ffffff;
+                        -fx-background-radius: 10;
+                        -fx-border-radius: 10;
+                        -fx-border-color: #e0e6f0;
+                        -fx-border-width: 1;
+                        -fx-padding: 10;
+                        -fx-font-size: 12px;
+                        -fx-font-family: 'Segoe UI';
+                        -fx-text-fill: #1a2b4c;
+                        -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 2);
+                        -fx-selection-bar: #e6f3ff;
+                        -fx-selection-bar-non-focused: #f0f6ff;"
+                       prefWidth="1000" prefHeight="500">
+                <columns>
+                    <TableColumn fx:id="titleColumn" text="Titre" prefWidth="200"
+                                 style="-fx-alignment: CENTER;
+                                       -fx-background-color: #f8fafc;
+                                       -fx-font-weight: bold;
+                                       -fx-text-fill: #1a2b4c;
+                                       -fx-padding: 8;
+                                       -fx-border-color: #e0e6f0;
+                                       -fx-border-width: 0 1 1 0;"/>
+                    <TableColumn fx:id="dateColumn" text="Date" prefWidth="150"
+                                 style="-fx-alignment: CENTER;
+                                       -fx-background-color: #f8fafc;
+                                       -fx-font-weight: bold;
+                                       -fx-text-fill: #1a2b4c;
+                                       -fx-padding: 8;
+                                       -fx-border-color: #e0e6f0;
+                                       -fx-border-width: 0 1 1 0;"/>
+                    <TableColumn fx:id="locationColumn" text="Lieu" prefWidth="150"
+                                 style="-fx-alignment: CENTER;
+                                       -fx-background-color: #f8fafc;
+                                       -fx-font-weight: bold;
+                                       -fx-text-fill: #1a2b4c;
+                                       -fx-padding: 8;
+                                       -fx-border-color: #e0e6f0;
+                                       -fx-border-width: 0 1 1 0;"/>
+                    <TableColumn fx:id="priceColumn" text="Prix (TND)" prefWidth="100"
+                                 style="-fx-alignment: CENTER;
+                                       -fx-background-color: #f8fafc;
+                                       -fx-font-weight: bold;
+                                       -fx-text-fill: #1a2b4c;
+                                       -fx-padding: 8;
+                                       -fx-border-color: #e0e6f0;
+                                       -fx-border-width: 0 1 1 0;"/>
+                    <TableColumn fx:id="reservationsColumn" text="Réservations" prefWidth="100"
+                                 style="-fx-alignment: CENTER;
+                                       -fx-background-color: #f8fafc;
+                                       -fx-font-weight: bold;
+                                       -fx-text-fill: #1a2b4c;
+                                       -fx-padding: 8;
+                                       -fx-border-color: #e0e6f0;
+                                       -fx-border-width: 0 1 1 0;"/>
+                    <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="180"
+                                 style="-fx-alignment: CENTER;
+                                       -fx-background-color: #f8fafc;
+                                       -fx-font-weight: bold;
+                                       -fx-text-fill: #1a2b4c;
+                                       -fx-padding: 8;
+                                       -fx-border-color: #e0e6f0;
+                                       -fx-border-width: 0 1 1 0;"/>
+                </columns>
+            </TableView>
+
+            <!-- Bouton d'ajout -->
+            <Button fx:id="addButton" text="Ajouter un événement" onAction="#addEvent"
+                    style="-fx-background-color: #2ecc71;
+                           -fx-text-fill: white;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;
+                           -fx-padding: 10 20;
+                           -fx-background-radius: 5;
+                           -fx-border-radius: 5;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);">
+
+                <graphic>
+                    <ImageView fitHeight="16" fitWidth="16">
+                        <Image url="@images/pic10.jpg"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </VBox>
+    </center>
+</BorderPane>

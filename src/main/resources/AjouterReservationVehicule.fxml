@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           stylesheets="@styles/applictionfront.css"
+           styleClass="root"
+           fx:controller="controllers.AjouterReservationController">
+
+    <AnchorPane prefHeight="650.0" prefWidth="800.0">
+        <VBox alignment="TOP_CENTER" spacing="20.0" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+            <!-- Titre -->
+            <Label text="Ajouter une Réservation"
+                   styleClass="h2"
+                   maxWidth="Infinity"
+                   alignment="CENTER" />
+
+            <!-- Formulaire -->
+            <VBox spacing="15.0" maxWidth="600.0" styleClass="card" alignment="CENTER">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <!-- ID Véhicule -->
+                <VBox spacing="5.0">
+                    <Label text="ID Véhicule :" />
+                    <TextField fx:id="vehiculeField" promptText="Entrez l'ID du véhicule" />
+                </VBox>
+
+                <!-- Date Début -->
+                <VBox spacing="5.0">
+                    <Label text="Date de début :" />
+                    <DatePicker fx:id="dateDebutPicker" />
+                </VBox>
+
+                <!-- Date Fin -->
+                <VBox spacing="5.0">
+                    <Label text="Date de fin :" />
+                    <DatePicker fx:id="dateFinPicker" />
+                </VBox>
+
+                <!-- Prix Total -->
+                <VBox spacing="5.0">
+                    <Label text="Prix total :" />
+                    <TextField fx:id="prixField" promptText="Entrez le prix total" />
+                </VBox>
+
+                <!-- Statut -->
+                <VBox spacing="5.0">
+                    <Label text="Statut :" />
+                    <ComboBox fx:id="statusCombo" />
+                </VBox>
+
+                <!-- Bouton Ajouter -->
+                <Button fx:id="ajouterButton"
+                        text="Enregistrer "
+                        styleClass="button"
+                        prefWidth="200.0" />
+            </VBox>
+        </VBox>
+    </AnchorPane>
+</StackPane>

@@ -1,0 +1,27 @@
+.calendar-view {
+    -fx-background-color: white;
+}
+
+.calendar-view .week-day-header {
+    -fx-background-color: #005288;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.calendar-view .day-cell {
+    -fx-border-color: #e0e0e0;
+}
+
+.calendar-view .today {
+    -fx-background-color: #e0f7fa;
+}
+
+.calendar-view .entry {
+    -fx-background-color: #005288;
+    -fx-text-fill: white;
+    -fx-border-color: #003366;
+}
+
+.calendar-view .entry .label {
+    -fx-text-fill: white;
+}

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.ToggleButton?>
+<AnchorPane style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterEventController">
+    <stylesheets>
+        <URL value="@/styles/frontEvent.css" />
+    </stylesheets>
+
+    <children>
+        <!-- Navigation en haut -->
+        <HBox fx:id="navBar" alignment="CENTER_LEFT" prefHeight="82.0" prefWidth="1000.0" spacing="20"
+              style="-fx-background-color: linear-gradient(to right, #c9eaff, #eaf6ff); -fx-padding: 15; -fx-border-width: 0 0 2 0; -fx-border-color: #b3d1f5; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);"
+              AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #002244; -fx-font-family: 'Segoe UI', sans-serif;" text="🚗 COVOITMOB" />
+            <Pane HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER" spacing="20">
+                <MenuButton style="-fx-background-color: rgba(255,255,255,0.6); -fx-text-fill: #002557; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 18;" text="📅 Événements">
+                    <items>
+                        <MenuItem style="-fx-font-size: 16px; -fx-text-fill: #002244;" text="📄 Mes événements" />
+                        <MenuItem style="-fx-font-size: 16px; -fx-text-fill: #002244;" text="📋 Mes réservations" />
+                    </items>
+                </MenuButton>
+                <ToggleButton fx:id="darkModeToggle"
+                              style="-fx-background-color: #3c3f41;
+                        -fx-text-fill: white;
+                        -fx-background-radius: 5;
+                        -fx-padding: 5 10;"
+                              text="🌙 Dark Mode" />
+
+                <Button style="-fx-background-color: rgba(255,255,255,0.6); -fx-text-fill: #002244; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20;" text="📋 Listes">
+                    <effect>
+                        <DropShadow color="#d0e5ff" radius="4" />
+                    </effect>
+                </Button>
+            </HBox>
+        </HBox>
+
+        <!-- Contenu principal en deux colonnes -->
+        <HBox alignment="CENTER" prefHeight="719.0" prefWidth="952.0" spacing="40" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="70.0">
+            <!-- Image à gauche -->
+            <VBox alignment="CENTER">
+
+                <!-- Title -->
+                <Label alignment="CENTER" style="-fx-font-size: 32px;                       -fx-font-weight: bold;                       -fx-text-fill: linear-gradient(to right, #001133, #003366);                       -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 3, 0.3, 0, 2);" text="🎉 Ajouter Événement" />
+                <ImageView fitHeight="400" fitWidth="400" translateY="30.0">
+                    <image>
+                        <Image url="@/img/pic7.jpg" />
+                    </image>
+                </ImageView>
+            </VBox>
+
+            <!-- Formulaire à droite -->
+            <VBox fx:id="mainBox" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="640.0" prefHeight="706.0" prefWidth="495.0" spacing="30" style="-fx-background-color: linear-gradient(to bottom, #c2e4fb, #eff6ff);                     -fx-background-radius: 25;                     -fx-border-radius: 25;                     -fx-border-color: linear-gradient(to right, #001f4d, #003366);                     -fx-border-width: 1;                     -fx-padding: 30;                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0.3, 0, 5);                     -fx-font-family: 'Segoe UI', sans-serif;" translateY="20.0">
+
+                <!-- Form Grid -->
+                <GridPane alignment="CENTER" hgap="25" prefHeight="549.0" prefWidth="426.0" vgap="20">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50" />
+                        <ColumnConstraints percentWidth="50" />
+                    </columnConstraints>
+
+                    <!-- Titre -->
+                    <VBox spacing="6" GridPane.columnIndex="0" GridPane.columnSpan="2">
+                        <Label style="-fx-font-weight: bold;" text="📌 Titre *" />
+                        <TextField fx:id="titleField" promptText="Ex: Concert de Jazz" style="-fx-background-radius: 12;                                     -fx-border-radius: 12;                                     -fx-border-color: #003366;                                     -fx-border-width: 1.5;                                     -fx-padding: 8 12;                                     -fx-background-color: white;" />
+                    </VBox>
+
+                    <!-- Description -->
+                    <VBox spacing="6" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                        <Label style="-fx-font-weight: bold;" text="📝 Description *" />
+                        <TextArea fx:id="descriptionField" style="-fx-background-radius: 12;                                    -fx-border-radius: 12;                                    -fx-border-color: #003366;                                    -fx-border-width: 1.5;                                    -fx-padding: 8 12;                                    -fx-background-color: white;" />
+                    </VBox>
+
+                    <!-- Lieu -->
+                    <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                        <Label style="-fx-font-weight: bold;" text="📍 Lieu *" />
+                        <TextField fx:id="locationField" promptText="Ex: Tunis" style="-fx-background-radius: 12;                                     -fx-border-radius: 12;                                     -fx-border-color: #003366;                                     -fx-border-width: 1.5;                                     -fx-padding: 8 12;                                     -fx-background-color: white;" />
+                    </VBox>
+
+                    <!-- Type -->
+                    <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label style="-fx-font-weight: bold;" text="🎭 Type *" />
+                        <ComboBox fx:id="typeCombo" style="-fx-background-radius: 12;                                    -fx-border-radius: 12;                                    -fx-border-color: #003366;                                    -fx-border-width: 1.5;                                    -fx-padding: 8 12;                                    -fx-background-color: white;">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="CONCERT" />
+                                    <String fx:value="THEATRE" />
+                                    <String fx:value="SPORT" />
+                                    <String fx:value="EXPOSITION" />
+                                    <String fx:value="CONFERENCE" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                    </VBox>
+
+                    <!-- Date de début -->
+                    <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                        <Label style="-fx-font-weight: bold;" text="📅 Date de début *" />
+                        <DatePicker fx:id="startDatePicker" style="-fx-background-radius: 12;                                      -fx-border-radius: 12;                                      -fx-border-color: #003366;                                      -fx-border-width: 1.5;                                      -fx-padding: 6 12;                                      -fx-background-color: white;" />
+                    </VBox>
+
+                    <!-- Date de fin -->
+                    <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Label style="-fx-font-weight: bold;" text="📅 Date de fin *" />
+                        <DatePicker fx:id="endDatePicker" style="-fx-background-radius: 12;                                      -fx-border-radius: 12;                                      -fx-border-color: #003366;                                      -fx-border-width: 1.5;                                      -fx-padding: 6 12;                                      -fx-background-color: white;" />
+                    </VBox>
+
+                    <!-- Prix -->
+                    <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                        <Label style="-fx-font-weight: bold;" text="💰 Prix (DT) *" />
+                        <TextField fx:id="priceField" promptText="Ex: 20.5" style="-fx-background-radius: 12;                                     -fx-border-radius: 12;                                     -fx-border-color: #003366;                                     -fx-border-width: 1.5;                                     -fx-padding: 8 12;                                     -fx-background-color: white;" />
+                    </VBox>
+
+                    <!-- Image -->
+                    <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <Label style="-fx-font-weight: bold;" text="🖼 Image *" />
+                        <HBox spacing="10">
+                            <TextField fx:id="imageUrlField" prefWidth="180" style="-fx-background-radius: 12;                                         -fx-border-radius: 12;                                         -fx-border-color: #003366;                                         -fx-border-width: 1.5;                                         -fx-padding: 8 12;                                         -fx-background-color: white;" />
+                            <Button onAction="#handleBrowseImage" style="-fx-background-color: linear-gradient(to right, #001f4d, #003366);                                       -fx-text-fill: white;                                       -fx-border-radius: 12;                                       -fx-background-radius: 12;                                       -fx-padding: 6 16;                                       -fx-cursor: hand;" text="📁 Parcourir" />
+                        </HBox>
+                    </VBox>
+
+                    <!-- Prévisions météo -->
+                    <VBox fx:id="weatherContainer" spacing="6" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                        <Label style="-fx-font-weight: bold;" text="🌤 Prévisions météo" />
+                        <HBox fx:id="weatherBox" alignment="CENTER_LEFT" spacing="10">
+                            <ImageView fx:id="weatherIcon" fitHeight="50" fitWidth="50" />
+                            <VBox spacing="5">
+                                <Label fx:id="weatherDescription" style="-fx-font-size: 14px; -fx-text-fill: #2c3e50;" />
+                                <Label fx:id="weatherTemp" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;" />
+                            </VBox>
+                        </HBox>
+                    </VBox>
+
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+                 <Button fx:id="submitButton" onAction="#handleAddEvent" style="-fx-background-radius: 25;                             -fx-text-fill: white;                             -fx-font-size: 16px;                             -fx-font-weight: bold;                             -fx-padding: 10 25;                             -fx-background-color: linear-gradient(to right, #001f4d, #003366);                             -fx-cursor: hand;                             -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0.3, 0, 4);" text="💾 Enregistrer" />
+
+                <!-- Submit Button centered -->
+                <HBox alignment="CENTER" prefHeight="0.0" prefWidth="419.0" />
+            <padding>
+               <Insets top="10.0" />
+            </padding>
+            </VBox>
+        </HBox>
+    </children>
+</AnchorPane>

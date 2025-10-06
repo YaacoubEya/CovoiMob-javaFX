@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.effect.DropShadow?>
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.ListesReservationsRecus"
+            prefWidth="850" prefHeight="650">
+
+    <!-- Navbar en haut -->
+    <top>
+        <HBox spacing="30" alignment="CENTER_LEFT" style="-fx-background-color: linear-gradient(to right, #c9eaff, #eaf6ff); -fx-padding: 15; -fx-border-width: 0 0 2 0; -fx-border-color: #b3d1f5; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);">
+            <Label text="🚗 COVOITMOB" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #002244; -fx-font-family: 'Segoe UI', sans-serif;" />
+            <Pane HBox.hgrow="ALWAYS"/>
+            <HBox spacing="20" alignment="CENTER">
+                <MenuButton text="🚙 Offres" style="-fx-background-color: rgba(255,255,255,0.6); -fx-text-fill: #002557; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 18;">
+                    <items>
+                        <MenuItem fx:id="mesOffresItem" text="📄 Mes offres"
+                                  style="-fx-font-size: 16px; -fx-text-fill: #002244;"
+                                  onAction="#handleMesOffres" />
+
+                        <MenuItem fx:id="autresOffresItem" text="🌐 Les offres des autres"
+                                  style="-fx-font-size: 16px; -fx-text-fill: #002244;"
+                                  onAction="#handleAutresOffres" />
+
+                    </items>
+                </MenuButton>
+
+                <Button fx:id="ajouterButton" text="➕ Ajouter" style="-fx-background-color: #005288; -fx-text-fill: #ffffff; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20;" onAction="#handleAjouterAction">
+                    <effect>
+                        <DropShadow color="#a0c4ff" radius="6"/>
+                    </effect>
+                </Button>
+
+                <Button text="📋 Listes" onAction="#handleListeAction" style="-fx-background-color: rgba(255,255,255,0.6); -fx-text-fill: #002244; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20;">
+                    <effect>
+                        <DropShadow color="#d0e5ff" radius="4"/>
+                    </effect>
+                </Button>
+                <Button fx:id="listeVehicules" text="Liste Vehicules" style="-fx-background-color: #005288; -fx-text-fill: #ffffff; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20;" onAction="#handleListeVehicules">
+                    <effect>
+                        <DropShadow color="#a0c4ff" radius="6"/>
+                    </effect>
+                </Button>
+                <MenuButton text="👤 Utilisateur"
+                            style="-fx-background-color: rgba(255,255,255,0.6); -fx-text-fill: #002244; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 18;">
+                    <items>
+                        <MenuItem text="📝 Profile"
+                                  style="-fx-font-size: 16px; -fx-text-fill: #002244;" />
+                        <MenuItem text="🚪 Deconnexion" onAction="#handleLogoutAction"
+                                  style="-fx-font-size: 16px; -fx-text-fill: #002244;" />
+                    </items>
+                </MenuButton>
+            </HBox>
+        </HBox>
+    </top>
+
+    <!-- Contenu principal centré -->
+    <center>
+        <StackPane style="-fx-background-color: linear-gradient(to right, #b3e5fc, #e1f5fe);">
+            <!-- Fond décoratif -->
+            <ImageView fitWidth="250" fitHeight="200" opacity="0.1" preserveRatio="true">
+                <image>
+                    <Image url="img/pic13.png" />
+                </image>
+            </ImageView>
+
+            <!-- Carte principale -->
+            <VBox fx:id="welcomeCard" spacing="20" alignment="TOP_CENTER"
+                  style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 25, 0.2, 0, 5);"
+                  prefWidth="700" maxWidth="700" prefHeight="500" maxHeight="500" minHeight="660">
+            <!-- En-tête avec titre et bouton aide -->
+                <HBox alignment="CENTER_LEFT" spacing="15">
+                    <ImageView fitWidth="180" fitHeight="180" preserveRatio="true">
+                        <image>
+                            <Image url="img/pic13.png"/>
+                        </image>
+                    </ImageView>
+                    <VBox alignment="CENTER_LEFT" spacing="5">
+                        <Label fx:id="titleLabel" text="Réservations Reçues"
+                               style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #1a237e;" />
+                        <Label text="Gérez les demandes de vos passagers"
+                               style="-fx-font-size: 14px; -fx-text-fill: #546e7a;"/>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="?" onAction="#showHelpPopup"
+                            style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-min-width: 30px; -fx-min-height: 30px; -fx-background-radius: 15; -fx-background-color: #039be5; -fx-text-fill: white;" />
+                </HBox>
+
+                <Separator style="-fx-padding: 5 0 5 0;"/>
+
+                <!-- Contenu -->
+                <Label text="Voici la liste des réservations reçues pour vos offres de covoiturage :"
+                       style="-fx-font-size: 15px; -fx-text-fill: #37474f;" wrapText="true"/>
+
+                <!-- Liste des réservations -->
+                <ListView fx:id="offersListView" prefHeight="400"
+                          style="-fx-background-radius: 10; -fx-border-color: #90caf9; -fx-border-radius: 10; -fx-padding: 10; -fx-background-color: #e3f2fd;" />
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

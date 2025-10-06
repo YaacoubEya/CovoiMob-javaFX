@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.paint.Color?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.MesOffresController" prefWidth="1200" prefHeight="800"
+            style="-fx-background-color: #f8fafc;">
+
+    <!-- Top Navbar - More elegant and spacious -->
+    <top>
+        <HBox spacing="30" alignment="CENTER_LEFT" style="-fx-background-color: linear-gradient(to right, #c9eaff, #eaf6ff); -fx-padding: 15; -fx-border-width: 0 0 2 0; -fx-border-color: #b3d1f5; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);">
+            <Label text="🚗 COVOITMOB" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #002244; -fx-font-family: 'Segoe UI', sans-serif;" />
+            <Pane HBox.hgrow="ALWAYS"/>
+            <HBox spacing="20" alignment="CENTER">
+                <MenuButton text="🚙 Offres" style="-fx-background-color: rgba(255,255,255,0.6); -fx-text-fill: #002557; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 18;">
+                    <items>
+                        <MenuItem fx:id="mesOffresItem" text="📄 Mes offres"
+                                  style="-fx-font-size: 16px; -fx-text-fill: #002244;"
+                                  onAction="#handleMesOffres" />
+
+                        <MenuItem fx:id="autresOffresItem" text="🌐 Les offres des autres"
+                                  style="-fx-font-size: 16px; -fx-text-fill: #002244;"
+                                  onAction="#handleAutresOffres" />
+
+                    </items>
+                </MenuButton>
+
+                <Button fx:id="ajouterButton" text="➕ Ajouter" style="-fx-background-color: #005288; -fx-text-fill: #ffffff; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20;" onAction="#handleAjouterAction">
+                    <effect>
+                        <DropShadow color="#a0c4ff" radius="6"/>
+                    </effect>
+                </Button>
+
+                <Button text="📋 Listes" onAction="#handleListeAction" style="-fx-background-color: rgba(255,255,255,0.6); -fx-text-fill: #002244; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20;">
+                    <effect>
+                        <DropShadow color="#d0e5ff" radius="4"/>
+                    </effect>
+                </Button>
+                <Button fx:id="listeVehicules" text="Liste Vehicules" style="-fx-background-color: #005288; -fx-text-fill: #ffffff; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20;" onAction="#handleListeVehicules">
+                    <effect>
+                        <DropShadow color="#a0c4ff" radius="6"/>
+                    </effect>
+                </Button>
+                <MenuButton text="👤 Utilisateur"
+                            style="-fx-background-color: rgba(255,255,255,0.6); -fx-text-fill: #002244; -fx-font-size: 17px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 18;">
+                    <items>
+                        <MenuItem text="📝 Profile" onAction="#handleProfile"
+                                  style="-fx-font-size: 16px; -fx-text-fill: #002244;" />
+                        <MenuItem text="🚪 Deconnexion" onAction="#handleLogoutAction"
+                                  style="-fx-font-size: 16px; -fx-text-fill: #002244;" />
+                    </items>
+                </MenuButton>
+            </HBox>
+        </HBox>
+    </top>
+
+    <!-- Center Content - More spacious and elegant -->
+    <center>
+        <VBox spacing="30" alignment="TOP_CENTER" style="-fx-padding: 40;">
+            <!-- Subtle header with more space -->
+            <VBox spacing="10" alignment="CENTER">
+                <Label text="Vos offres publiées"
+                       style="-fx-font-size: 24px; -fx-font-weight: 700; -fx-text-fill: #1e3a8a; -fx-font-family: 'Segoe UI';"/>
+                <Label text="Vous pouvez les modifier ou les supprimer à tout moment"
+                       style="-fx-font-size: 20px; -fx-text-fill: #64748b; -fx-font-family: 'Segoe UI';"/>
+            </VBox>
+
+            <!-- Pagination and Cards container -->
+            <FlowPane fx:id="mesOffresContainer" hgap="30" vgap="30" alignment="TOP_CENTER" prefWrapLength="1000"
+                          style="-fx-padding: 1;"/>
+
+        </VBox>
+    </center>
+
+    <!-- Subtle footer -->
+    <bottom>
+
+        <VBox alignment="CENTER" style="-fx-padding: 20; -fx-background-color: #f1f5f9;">
+            <Pagination fx:id="pagination"
+                        style="
+                -fx-background-color: transparent;
+                -fx-border-color: transparent;
+                -fx-background-radius: 0;
+                -fx-border-radius: 0;
+                -fx-padding: 0;
+                -fx-effect: none;
+                -fx-font-size: 16px;
+                -fx-font-weight: 600;
+                -fx-font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+                -fx-text-fill: #1e3a8a;
+                -fx-cursor: hand;
+            " />
+
+            <Label text="© 2025 COVOITMOB" style="-fx-font-size: 12px; -fx-text-fill: #64748b;"/>
+        </VBox>
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.FrontController"
+            prefWidth="600" prefHeight="400"
+            style="-fx-background-color: #ecf0f1;">
+
+    <VBox alignment="TOP_CENTER" spacing="20"
+          AnchorPane.topAnchor="50"
+          AnchorPane.leftAnchor="20"
+          AnchorPane.rightAnchor="20">
+
+        <Label fx:id="welcomeLabel"
+               text="Bienvenue !"
+               style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+        <Button text="Déconnexion" onAction="#handleLogout"
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+
+    </VBox>
+</AnchorPane>

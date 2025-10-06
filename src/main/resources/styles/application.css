@@ -1,0 +1,134 @@
+/* Styles de base */
+.root {
+    -fx-background-color: #f8f9fa;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Barre de navigation */
+.navbar {
+    -fx-background-color: #2c3e50;
+    -fx-padding: 15 30;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 3);
+}
+
+.navbar-title {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ecf0f1;
+    -fx-font-size: 14px;
+    -fx-padding: 8 20;
+    -fx-cursor: hand;
+    -fx-border-radius: 4;
+}
+
+.nav-button:hover {
+    -fx-background-color: rgba(255,255,255,0.1);
+}
+
+.nav-button.active {
+    -fx-background-color: #3498db;
+    -fx-font-weight: bold;
+}
+
+/* Contenu principal */
+.content-container {
+    -fx-padding: 30;
+    -fx-spacing: 20;
+}
+
+.section-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 0 0 20 0;
+}
+
+/* Liste des véhicules */
+.vehicules-list {
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+}
+
+.vehicules-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 10 0;
+}
+
+.vehicules-list .list-cell:empty {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+}
+
+/* Carte véhicule */
+.vehicule-card {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    -fx-padding: 15;
+}
+
+.vehicule-content {
+    -fx-spacing: 15;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.vehicule-image {
+    -fx-fit-width: 180;
+    -fx-fit-height: 120;
+    -fx-border-radius: 4;
+}
+
+.vehicule-details {
+    -fx-spacing: 8;
+}
+
+.vehicule-type {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.vehicule-modele {
+    -fx-font-size: 16px;
+    -fx-text-fill: #34495e;
+}
+
+.vehicule-prix {
+    -fx-font-size: 15px;
+    -fx-text-fill: #3498db;
+    -fx-font-weight: bold;
+}
+
+.vehicule-dispo {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7f8c8d;
+}
+
+.reserve-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 20;
+    -fx-font-size: 14px;
+    -fx-background-radius: 4;
+}
+
+.reserve-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Pied de page */
+.footer {
+    -fx-background-color: #2c3e50;
+    -fx-padding: 15;
+}
+
+.footer-text {
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}

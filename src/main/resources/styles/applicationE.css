@@ -1,0 +1,443 @@
+/* application.css */
+.root {
+    -fx-background-color: #f5f9ff;
+    -fx-font-family: 'Roboto', sans-serif;
+}
+
+/* Image de fond */
+.image-view {
+    -fx-opacity: 0.15; /* Opacité réduite pour meilleure lisibilité */
+}
+
+/* En-tête */
+.header {
+    -fx-padding: 20px 0 15px 0;
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+}
+
+.header-title {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-font-style: italic;
+}
+
+/* Barre de navigation */
+.nav-bar {
+    -fx-background-color: white;
+    -fx-padding: 12px 25px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 3);
+}
+
+.nav-button {
+    -fx-text-fill: #3498db;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-background-color: transparent;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+.nav-button:hover {
+    -fx-text-fill: #2980b9;
+    -fx-underline: true;
+}
+
+.nav-button.active {
+    -fx-text-fill: white;
+    -fx-background-color: #3498db;
+    -fx-background-radius: 6px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 20px;
+}
+
+/* Contenu principal */
+.content-container {
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-padding: 30px;
+    -fx-spacing: 20px;
+    -fx-max-width: 700px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);
+    -fx-translate-y: 20px; /* Espacement depuis la navbar */
+}
+
+.content-title {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 15px 0;
+}
+
+/* Formulaire */
+.form-grid {
+    -fx-padding: 10px;
+}
+
+.form-label {
+    -fx-text-fill: #555;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+}
+
+.form-field {
+    -fx-pref-width: 100%;
+    -fx-max-width: infinity;
+    -fx-padding: 5px;
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+    -fx-border-color: #bdc3c7;
+}
+.text-area {
+    -fx-pref-row-count: 4;
+    -fx-max-height: infinity;
+}
+.form-field:focused {
+    -fx-border-color: #3498db;
+    -fx-effect: innershadow(gaussian, rgba(52,152,219,0.2), 5, 0, 0, 0);
+}
+
+/* Bouton Enregistrer */
+.submit-button {
+    -fx-pref-width: 200px;
+    -fx-pref-height: 40px;
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+/* Bouton Supprimer */
+.delete-button {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 5 15;
+    -fx-cursor: hand;
+}
+
+.delete-button:hover {
+    -fx-background-color: #c82333;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1);
+}
+
+
+.browse-button {
+    -fx-pref-width: 100px;
+    -fx-background-color: #95a5a6;
+    -fx-text-fill: white;
+}
+.button:hover {
+    -fx-opacity: 0.9;
+    -fx-cursor: hand;
+}
+
+.submit-button:hover {
+    -fx-background-color: #2980b9;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 5, 0, 0, 3);
+}
+
+/* Pied de page */
+.footer {
+    -fx-background-color: #f1f5f9;
+    -fx-padding: 15px;
+    -fx-background-radius: 8px 8px 0 0;
+}
+
+.footer-text {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 12px;
+}
+/* Animation for form elements */
+@keyframes fadeIn {
+    from {
+        -fx-opacity: 0;
+        -fx-translate-y: 10px;
+    }
+    to {
+        -fx-opacity: 1;
+        -fx-translate-y: 0;
+    }
+}
+/* Pour le conteneur semi-transparent */
+.transparent-container {
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-background-radius: 15;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+}
+/* Style général */
+.root {
+    -fx-font-family: 'Arial';
+}
+
+/* Header */
+.header {
+    -fx-background-color: #2c3e50;
+    -fx-padding: 15px;
+}
+
+.header-title {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 0 20px;
+}
+
+.add-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-border-radius: 4px;
+}
+
+.add-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Cartes d'événements */
+.event-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    -fx-padding: 15;
+    -fx-margin: 10;
+    -fx-min-height: 180px;
+}
+.event-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.event-date {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7f8c8d;
+}
+
+.event-location {
+    -fx-font-size: 14px;
+    -fx-text-fill: #34495e;
+}
+
+.event-price {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e74c3c;
+}
+
+.event-image {
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+/* Style du bouton Réserver - Version bleue élégante */
+.reserve-button {
+    -fx-background-color: #3498db; /* Bleu vif */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+    -fx-transition: all 0.3s;
+}
+
+/* Effet au survol */
+.reserve-button:hover {
+    -fx-background-color: #2980b9; /* Bleu plus foncé */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+/* Effet quand cliqué */
+.reserve-button:pressed {
+    -fx-background-color: #1a5276; /* Bleu très foncé */
+    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.4), 5, 0, 0, 1);
+}
+
+/* Conteneur principal */
+.events-container {
+    -fx-padding: 20px;
+    -fx-background-color: #f5f5f5;
+}.no-events-label {
+     -fx-font-size: 16px;
+     -fx-text-fill: #7f8c8d;
+     -fx-padding: 20px;
+ }
+.add-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-border-radius: 4px;
+}
+
+.add-button:hover {
+    -fx-background-color: #45a049;
+}
+.edit-button, .reserve-button, .delete-button {
+    -fx-min-width: 80px;
+    -fx-pref-height: 30px;
+    -fx-font-size: 12px;
+}
+.reservation-dialog {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-spacing: 10;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+}
+
+.reservation-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.reservation-confirm-btn {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 16;
+}
+/* Fond */
+.image-view {
+    -fx-opacity: 0.1;
+}
+
+/* Conteneur principal */
+.content-container {
+    -fx-background-color: rgba(255, 255, 255, 0.85);
+    -fx-padding: 15px;
+}
+
+/* Header */
+.header-bar {
+    -fx-padding: 15px;
+    -fx-background-color: #ecf0f1;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 0 0 1px 0;
+}
+.form-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e;
+    -fx-alignment: CENTER_RIGHT;
+    -fx-padding: 5px;
+}
+.header-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Bouton Ajouter */
+.add-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 4px;
+}
+
+.add-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Liste d'événements */
+.events-list {
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+
+/* Cartes d'événements */
+.event-card {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+    -fx-padding: 15px;
+    -fx-margin: 10px;
+}
+
+.event-content {
+    -fx-padding: 10;
+    -fx-pref-width: 500;
+}
+
+.event-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.event-date {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7f8c8d;
+}
+
+.event-location {
+    -fx-font-size: 14px;
+    -fx-text-fill: #34495e;
+}
+
+.event-price {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e74c3c;
+}
+
+.event-image {
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+    -fx-opacity: 1;
+}
+
+.reserve-button {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 4px;
+}
+
+.reserve-button:hover {
+    -fx-background-color: #27ae60;
+}
+/* Fond */
+#backgroundImage {
+    -fx-opacity: 0.1;
+}
+
+/* Liste d'événements */
+.events-list {
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+
+/* Cartes d'événements */
+.event-card {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+    -fx-padding: 15px;
+    -fx-margin: 10px;
+    -fx-opacity: 1; /* Assure l'opacité totale */
+}
+
+.event-card .image-view {
+    -fx-opacity: 1; /* Spécifiquement pour les images dans les cartes */
+}
+.event-image {
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
+}
+
+
+/* ... (gardez le reste de votre CSS existant) ... */

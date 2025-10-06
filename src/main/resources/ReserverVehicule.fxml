@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.ReserverVehiculeController" spacing="15"
+      styleClass="glass-card" alignment="CENTER"
+      stylesheets="@styles/frontLocation.css">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label fx:id="vehiculeLabel" styleClass="display-5 text-center"/>
+
+    <HBox alignment="CENTER" spacing="20">
+        <!-- Conteneur du calendrier -->
+        <VBox fx:id="calendarContainer" styleClass="calendar-box">
+            <HBox alignment="CENTER" spacing="10">
+                <Button fx:id="prevMonthButton" text="&lt;" onAction="#previousMonth"/>
+                <Label fx:id="monthYearLabel" styleClass="calendar-title"/>
+                <Button fx:id="nextMonthButton" text="&gt;" onAction="#nextMonth"/>
+            </HBox>
+            <GridPane fx:id="calendarGrid" styleClass="calendar-grid">
+                <!-- Les jours de la semaine seront ajoutés dynamiquement -->
+            </GridPane>
+        </VBox>
+
+        <!-- Conteneur de la GIF -->
+        <VBox alignment="CENTER" spacing="10" styleClass="gif-container">
+            <ImageView fx:id="bikeGif" fitWidth="200" fitHeight="200" preserveRatio="true"/>
+            <Label text="Réservez votre vehicule en quelques clics!" styleClass="gif-label"/>
+            <Label text="😊" styleClass="smiley-label"/> <!-- Smiley ajouté ici -->
+        </VBox>
+
+    </HBox>
+
+    <GridPane styleClass="form-grid" hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints prefWidth="150"/>
+            <ColumnConstraints prefWidth="250"/>
+        </columnConstraints>
+
+        <!-- Date Début -->
+        <Label text="Date de début:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="form-label"/>
+        <DatePicker fx:id="dateDebutPicker" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                    styleClass="form-control" onAction="#calculerPrixTotal"/>
+
+        <!-- Date Fin -->
+        <Label text="Date de fin:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="form-label"/>
+        <DatePicker fx:id="dateFinPicker" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                    styleClass="form-control" onAction="#calculerPrixTotal"/>
+
+        <!-- Prix Total -->
+        <Label text="Prix total:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="form-label"/>
+        <Label fx:id="prixTotalLabel" GridPane.rowIndex="2" GridPane.columnIndex="1"
+               styleClass="form-label text-success display-6"/>
+    </GridPane>
+
+    <Button fx:id="confirmerButton" text="Confirmer" onAction="#handleConfirmer"
+            styleClass="btn btn-primary w-100 btn-animated"/>
+</VBox>
